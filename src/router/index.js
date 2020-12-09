@@ -4,6 +4,10 @@ import HelloWorld from '@/components/HelloWorld'
 import Home from "@/components/home"
 import HomeLeft from "@/components/home-left"
 import Homea from "@/components/homea"
+import A from "@/components/a"
+import B from "@/components/b"
+import C from "@/components/c"
+import NamedViews from "@/components/namedViews"
 
 Vue.use(Router)
 
@@ -39,6 +43,38 @@ let router = new Router({
           component: Homea
         }
       ]
+    },
+    // named views
+    {
+      path: "/name",
+      name: "name",
+      component: NamedViews,
+      children: [
+        {
+          path: "/a",
+          components: {
+            default: A,
+            b: B,
+            // c: C
+          }
+        },
+        {
+          path: "/b",
+          components: {
+            default: B,
+            c: C
+          }
+        },
+        {
+          path: "/c",
+          components: {
+            default: C,
+            b: B,
+            c: A
+          }
+        }
+      ]
+      
     }
   ]
 })

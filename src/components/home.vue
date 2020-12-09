@@ -2,9 +2,9 @@
     <div class="home">
         <div class="home-left">
             <ul id="main">
-                <li @click="push('homeLeft')">商品</li>
-                <li><router-link  to="/homeLeft">评价</router-link></li>
-                <li @click="push('homea')">homea</li>
+                <li @click="push('/home/homeLeft')">商品</li>
+                <li><router-link  to="/homeLeft" append>评价</router-link></li>
+                <li @click="push('/home/homea')">homea</li>
             </ul>
             
         </div>
@@ -22,9 +22,10 @@
         computed: {},
         created () {},
         methods: {
-            push(name){
+            push(path){
                 this.$router.push({
-                    name: name
+                    path: path,
+                    append: true
                 });
             }
         }
